@@ -14,6 +14,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		93AF0E13292E53A6007CC9B2 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF0E12292E53A6007CC9B2 /* DemoViewController.swift */; };
 		9B957F88D8EDA210DCCFAF39 /* Pods_LKTabBar_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651B8B280356AFBCF7692BFC /* Pods_LKTabBar_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		121F26EAFA6912D046A9C401 /* LKTabBar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LKTabBar.podspec; path = ../LKTabBar.podspec; sourceTree = "<group>"; };
-		1A42F6FF737047459D968CF6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		39E826B70CB7532035525218 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		121F26EAFA6912D046A9C401 /* LKTabBar.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LKTabBar.podspec; path = ../LKTabBar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1A42F6FF737047459D968CF6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		39E826B70CB7532035525218 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5B7D962F361FC8AB7997FF4A /* Pods-LKTabBar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKTabBar_Example.debug.xcconfig"; path = "Target Support Files/Pods-LKTabBar_Example/Pods-LKTabBar_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* LKTabBar_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LKTabBar_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		651B8B280356AFBCF7692BFC /* Pods_LKTabBar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LKTabBar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7157F004AA37B73CAC990ED3 /* Pods-LKTabBar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKTabBar_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LKTabBar_Tests/Pods-LKTabBar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		93AF0E12292E53A6007CC9B2 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		BAC4DE32C4BDCBE75EA80536 /* Pods_LKTabBar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LKTabBar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4A5E8F184DDA820DF5CA88 /* Pods-LKTabBar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKTabBar_Tests.release.xcconfig"; path = "Target Support Files/Pods-LKTabBar_Tests/Pods-LKTabBar_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DB3405BBF2EAEB7601272547 /* Pods-LKTabBar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKTabBar_Example.release.xcconfig"; path = "Target Support Files/Pods-LKTabBar_Example/Pods-LKTabBar_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				93AF0E12292E53A6007CC9B2 /* DemoViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -156,7 +159,6 @@
 				7157F004AA37B73CAC990ED3 /* Pods-LKTabBar_Tests.debug.xcconfig */,
 				CC4A5E8F184DDA820DF5CA88 /* Pods-LKTabBar_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -224,7 +226,7 @@
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "LKTabBar" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -331,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AF0E13292E53A6007CC9B2 /* DemoViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
@@ -419,11 +422,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
@@ -465,10 +471,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -483,8 +492,12 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -498,8 +511,12 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -520,7 +537,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LKTabBar_Example.app/LKTabBar_Example";
 			};
 			name = Debug;
@@ -538,7 +555,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LKTabBar_Example.app/LKTabBar_Example";
 			};
 			name = Release;

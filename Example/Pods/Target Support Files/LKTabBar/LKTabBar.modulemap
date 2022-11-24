@@ -1,0 +1,6 @@
+framework module LKTabBar {
+  umbrella header "LKTabBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

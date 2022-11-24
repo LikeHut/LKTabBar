@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LKTabBar
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,8 +15,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        self.window = UIWindow(frame:UIScreen.main.bounds)
+//        self.window?.makeKeyAndVisible()
+//
+//        
+//        let vc1 = DemoViewController()
+//        let vc2 = DemoViewController()
+//        let vc3 = DemoViewController()
+//        let vc4 = DemoViewController()
+//        let vc5 = DemoViewController()
+//
+//        vc1.tabBarItem = LKTabBarItem.init(title: "首页", image: UIImage(named: "home-normal")!, selectedImage: UIImage(named: "home-selected")!, tag: 0)
+//        vc2.tabBarItem = LKTabBarItem.init(title: "书架", image: UIImage(named: "shelf-normal")!, selectedImage: UIImage(named: "shelf-selected")!, tag: 1)
+//        vc3.tabBarItem = LKTabBarItem.init(title: "日历", image: UIImage(named: "calendar-normal")!, selectedImage: UIImage(named: "calendar-selected")!, tag: 2)
+//        vc4.tabBarItem = LKTabBarItem.init(title: "功能", image: UIImage(named: "more-normal")!, selectedImage: UIImage(named: "more-selected")!, tag: 3)
+//        vc5.tabBarItem = LKTabBarItem.init(title: "设置", image: UIImage(named: "setting-normal")!, selectedImage: UIImage(named: "setting-selected")!, tag: 4)
+//        
+//        let config =  LKTabBarConfig()
+//        let tabBarController = LKTabBarController(config: config)
+//        tabBarController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
+//        
+//        self.window?.rootViewController = tabBarController
+        
+       
+        
         return true
     }
 

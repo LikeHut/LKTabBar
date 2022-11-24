@@ -1,0 +1,16 @@
+PODS:
+  - LKTabBar (0.1.0)
+
+DEPENDENCIES:
+  - LKTabBar (from `../`)
+
+EXTERNAL SOURCES:
+  LKTabBar:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LKTabBar: b473a63640dfea3f11dd5270b08e9bf78f995d9b
+
+PODFILE CHECKSUM: 1d29048780ed8371c045feb7d4473009cf0ba0c3
+
+COCOAPODS: 1.11.3
