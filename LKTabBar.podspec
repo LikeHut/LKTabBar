@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LKTabBar'
-  s.version          = '0.1.1'
+  s.version          = '0.1.3'
   s.summary          = 'An easy way to customize tabBarController and tabBarItem.'
 
 # This description is used to generate tags and improve search results.
