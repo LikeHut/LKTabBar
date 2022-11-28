@@ -14,7 +14,7 @@ internal protocol LKTabBarDelegate: NSObjectProtocol {
     func tabBar(_ tabBar: UITabBar, didSelectIndex selectedIndex: NSInteger)
 }
 
-public class LKTabBar: UITabBar {
+open class LKTabBar: UITabBar {
 
     // tabBar 自定义 item 的容器
     internal var buttons = [LKTabBarItemButton]()
@@ -34,11 +34,11 @@ public class LKTabBar: UITabBar {
         self.config = config
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
+    open override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
         super.setItems(items, animated: animated)
         self.reload()
     }

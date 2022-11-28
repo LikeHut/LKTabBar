@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LKTabBarItem: UITabBarItem {
+open class LKTabBarItem: UITabBarItem {
     
     public init(title: String? = nil, image: UIImage?, selectedImage: UIImage?, tag: Int = 0) {
         super.init()

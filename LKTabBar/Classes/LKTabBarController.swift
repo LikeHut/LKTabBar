@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class LKTabBarController: UITabBarController, LKTabBarDelegate {
+open class LKTabBarController: UITabBarController, LKTabBarDelegate {
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ public class LKTabBarController: UITabBarController, LKTabBarDelegate {
         self.setupTabBar()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
