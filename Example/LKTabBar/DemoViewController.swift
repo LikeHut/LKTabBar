@@ -13,7 +13,6 @@ class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         let redRandom = Float.random(in: 0...1)
         let greenRandom = Float.random(in: 0...1)
         let blueRandom = Float.random(in: 0...1)

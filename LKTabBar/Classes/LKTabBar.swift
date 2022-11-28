@@ -29,15 +29,6 @@ open class LKTabBar: UITabBar {
         }
     }
     
-    public init(frame: CGRect, config: LKTabBarConfig) {
-        super.init(frame: frame)
-        self.config = config
-    }
-    
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     open override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
         super.setItems(items, animated: animated)
         self.reload()
@@ -195,7 +186,7 @@ open class LKTabBar: UITabBar {
         }
     }
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         guard self.items != nil else {

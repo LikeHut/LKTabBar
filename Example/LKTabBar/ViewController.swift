@@ -20,11 +20,11 @@ class ViewController: UIViewController {
         self.navigationItem.title = "Example"
     }
     
-    public let sectionTitleArray = [
+    let sectionTitleArray = [
         "基础样式", "自定义样式", "选中状态动画效果", "提醒样式及动画效果"
     ]
     
-    public let titleArray = [
+    let titleArray = [
         ["默认样式", "只有图片", "只有文字"],
         ["更改文字默认颜色 / 选中颜色", "更改默认背景颜色 / 选中背景颜色", "自定义单个 tabBarItem 图片大小"],
         ["绕 X 轴旋转效果", "绕 Y 轴旋转效果", "放大效果", "缩小效果", "缩放效果"],
@@ -128,7 +128,7 @@ extension ViewController {
     // MARK: - 基础样式
     
     // 默认样式
-    public func basicDefaultType() -> LKTabBarController {
+    internal func basicDefaultType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -150,7 +150,7 @@ extension ViewController {
     }
     
     // 只有图片
-    public func basicOnlyImageType() -> LKTabBarController {
+    internal func basicOnlyImageType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -172,7 +172,7 @@ extension ViewController {
     }
     
     // 只有文字
-    public func basicOnlyTitleType() -> LKTabBarController {
+    internal func basicOnlyTitleType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -197,7 +197,7 @@ extension ViewController {
     // MARK: - 自定义样式
 
     // 更改文字默认颜色 / 选中颜色
-    public func customChangeTitleColorType() -> LKTabBarController {
+    internal func customChangeTitleColorType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -221,7 +221,7 @@ extension ViewController {
     }
     
     // 更改默认背景颜色 / 选中背景颜色
-    public func customChangeBackgroundColorType() -> LKTabBarController {
+    internal func customChangeBackgroundColorType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -245,7 +245,7 @@ extension ViewController {
     }
     
     // 自定义单个 tabBarItem 图片大小
-    public func customChangeOneItemImageSizeType() -> LKTabBarController {
+    internal func customChangeOneItemImageSizeType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -274,7 +274,7 @@ extension ViewController {
     // MARK: - 选中状态动画效果
     
     // 选中绕 X 轴旋转效果
-    public func selectedAnimationRotationXType() -> LKTabBarController {
+    internal func selectedAnimationRotationXType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -297,7 +297,7 @@ extension ViewController {
     }
     
     // 选中绕 Y 轴旋转效果
-    public func selectedAnimationRotationYType() -> LKTabBarController {
+    internal func selectedAnimationRotationYType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -320,7 +320,7 @@ extension ViewController {
     }
     
     // 选中放大效果
-    public func selectedAnimationZoominType() -> LKTabBarController {
+    internal func selectedAnimationZoominType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -343,7 +343,7 @@ extension ViewController {
     }
     
     // 选中缩小效果
-    public func selectedAnimationZoomoutType() -> LKTabBarController {
+    internal func selectedAnimationZoomoutType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -366,7 +366,7 @@ extension ViewController {
     }
     
     // 选中缩放效果
-    public func selectedAnimationScaleType() -> LKTabBarController {
+    internal func selectedAnimationScaleType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -392,7 +392,7 @@ extension ViewController {
     // MARK: - 提醒样式及动画效果
     
     // 多种提醒样式
-    public func remindMultipleType() -> LKTabBarController {
+    internal func remindMultipleType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -424,7 +424,7 @@ extension ViewController {
     }
     
     // 提醒抖动效果
-    public func remindAnimationShakeType() -> LKTabBarController {
+    internal func remindAnimationShakeType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -457,7 +457,7 @@ extension ViewController {
     }
     
     // 提醒透明渐变效果
-    public func remindAnimationOpacityType() -> LKTabBarController {
+    internal func remindAnimationOpacityType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()
@@ -490,7 +490,7 @@ extension ViewController {
     }
     
     // 提醒缩放效果
-    public func remindAnimationScaleType() -> LKTabBarController {
+    internal func remindAnimationScaleType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
         let vc3 = DemoViewController()

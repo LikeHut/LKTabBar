@@ -17,10 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
 //        self.window = UIWindow(frame:UIScreen.main.bounds)
-//        self.window?.makeKeyAndVisible()
 //
-//        
 //        let vc1 = DemoViewController()
 //        let vc2 = DemoViewController()
 //        let vc3 = DemoViewController()
@@ -38,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        tabBarController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
 //        
 //        self.window?.rootViewController = tabBarController
-        
-       
         
         return true
     }

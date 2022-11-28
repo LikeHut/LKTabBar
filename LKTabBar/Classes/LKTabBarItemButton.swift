@@ -116,7 +116,7 @@ public class LKTabBarItemButton: UIView {
         }
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         imageView.isHidden = (imageView.image == nil)

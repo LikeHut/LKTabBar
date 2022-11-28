@@ -10,10 +10,11 @@ import UIKit
 
 open class LKTabBarController: UITabBarController, LKTabBarDelegate {
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupTabBar()
     }
     
     open var lk_tabBar: LKTabBar? = nil
@@ -23,8 +24,7 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
     public init(config: LKTabBarConfig) {
         super.init(nibName: nil, bundle: nil)
         self.config = config
-        
-        self.setupTabBar()
+        self.lk_tabBar?.config = config
     }
     
     public required init?(coder: NSCoder) {
@@ -33,7 +33,7 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
     
     // 将系统 tabBar 替换为自定义 lk_tabBar
     open func setupTabBar() {
-        self.lk_tabBar = LKTabBar(frame: self.tabBar.frame, config: self.config)
+        self.lk_tabBar = LKTabBar(frame: self.tabBar.frame)
         self.lk_tabBar!.customDelegate = self
         
         self.setValue(self.lk_tabBar, forKey: "tabBar")
@@ -46,7 +46,7 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
     }
     
     // KVO 观察 item 选择情况
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard keyPath == "selectedIndex" else {
             return
         }
