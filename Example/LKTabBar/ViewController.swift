@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     let titleArray = [
         ["默认样式", "只有图片", "只有文字"],
-        ["更改文字默认颜色 / 选中颜色", "更改默认背景颜色 / 选中背景颜色", "自定义单个 tabBarItem 图片大小"],
+        ["更改文字默认颜色 / 选中颜色", "更改默认背景颜色 / 选中背景颜色", "自定义单个 tabBarItem 默认颜色 / 选中颜色", "自定义单个 tabBarItem 默认背景颜色 / 选中背景颜色", "自定义单个 tabBarItem 图片大小 / 图片偏移位置", "显示 tabBar 顶部线条"],
         ["绕 X 轴旋转效果", "绕 Y 轴旋转效果", "放大效果", "缩小效果", "缩放效果"],
         ["多种提醒样式", "提醒抖动效果", "提醒透明渐变效果", "提醒缩放效果"]
     ]
@@ -76,7 +76,13 @@ extension ViewController: UITableViewDataSource {
             case 1:
                 self.present(self.customChangeBackgroundColorType(), animated: true)
             case 2:
+                self.present(self.customChangeOneItemTitleColorType(), animated: true)
+            case 3:
+                self.present(self.customChangeOneItemBackgroundColorType(), animated: true)
+            case 4:
                 self.present(self.customChangeOneItemImageSizeType(), animated: true)
+            case 5:
+                self.present(self.customShowTabBarTopLineType(), animated: true)
             default:
                 break
             }
@@ -244,7 +250,58 @@ extension ViewController {
         return tabBarController
     }
     
-    // 自定义单个 tabBarItem 图片大小
+    // 自定义单个 tabBarItem 默认颜色 / 选中颜色（单个 tabBarItem 优先级 > 全局 config 优先级）
+    internal func customChangeOneItemTitleColorType() -> LKTabBarController {
+        let vc1 = DemoViewController()
+        let vc2 = DemoViewController()
+        let vc3 = DemoViewController()
+        let vc4 = DemoViewController()
+        let vc5 = DemoViewController()
+
+        vc1.tabBarItem = LKTabBarItem.init(title: "首页", image: UIImage(named: "home-normal")!, selectedImage: UIImage(named: "home-selected")!, tag: 0)
+        vc2.tabBarItem = LKTabBarItem.init(title: "书架", image: UIImage(named: "shelf-normal")!, selectedImage: UIImage(named: "shelf-selected")!, tag: 1)
+        let tabBarItem3 = LKTabBarItem.init(title: "日历", image: UIImage(named: "calendar-normal")!, selectedImage: UIImage(named: "calendar-selected")!, tag: 2)
+        tabBarItem3.normalTitleColor = .green
+        tabBarItem3.selectedTitleColor = .orange
+        vc3.tabBarItem = tabBarItem3
+        
+        vc4.tabBarItem = LKTabBarItem.init(title: "功能", image: UIImage(named: "more-normal")!, selectedImage: UIImage(named: "more-selected")!, tag: 3)
+        vc5.tabBarItem = LKTabBarItem.init(title: "设置", image: UIImage(named: "setting-normal")!, selectedImage: UIImage(named: "setting-selected")!, tag: 4)
+        
+        let config =  LKTabBarConfig()
+        let tabBarController = LKTabBarController(config: config)
+        tabBarController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
+        
+        return tabBarController
+    }
+    
+    // 自定义单个 tabBarItem 默认背景颜色 / 选中背景颜色（单个 tabBarItem 优先级 > 全局 config 优先级）
+    internal func customChangeOneItemBackgroundColorType() -> LKTabBarController {
+        let vc1 = DemoViewController()
+        let vc2 = DemoViewController()
+        let vc3 = DemoViewController()
+        let vc4 = DemoViewController()
+        let vc5 = DemoViewController()
+
+        vc1.tabBarItem = LKTabBarItem.init(title: "首页", image: UIImage(named: "home-normal")!, selectedImage: UIImage(named: "home-selected")!, tag: 0)
+        vc2.tabBarItem = LKTabBarItem.init(title: "书架", image: UIImage(named: "shelf-normal")!, selectedImage: UIImage(named: "shelf-selected")!, tag: 1)
+        let tabBarItem3 = LKTabBarItem.init(title: "日历", image: UIImage(named: "calendar-normal")!, selectedImage: UIImage(named: "calendar-selected")!, tag: 2)
+        tabBarItem3.normalBackgroundColor = .gray
+        tabBarItem3.selectedBackgroundColor = .darkGray
+        vc3.tabBarItem = tabBarItem3
+        
+        vc4.tabBarItem = LKTabBarItem.init(title: "功能", image: UIImage(named: "more-normal")!, selectedImage: UIImage(named: "more-selected")!, tag: 3)
+        vc5.tabBarItem = LKTabBarItem.init(title: "设置", image: UIImage(named: "setting-normal")!, selectedImage: UIImage(named: "setting-selected")!, tag: 4)
+        
+        let config =  LKTabBarConfig()
+
+        let tabBarController = LKTabBarController(config: config)
+        tabBarController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
+        
+        return tabBarController
+    }
+    
+    // 自定义单个 tabBarItem 图片大小 / 图片偏移位置
     internal func customChangeOneItemImageSizeType() -> LKTabBarController {
         let vc1 = DemoViewController()
         let vc2 = DemoViewController()
@@ -252,17 +309,39 @@ extension ViewController {
         let vc4 = DemoViewController()
         let vc5 = DemoViewController()
 
-        let item3 = LKTabBarItem.init(title: "", image: UIImage(named: "add-plus")!, selectedImage: UIImage(named: "add-plus")!, tag: 2)
-        item3.imageSize = CGSize(width: 72, height: 72)
-        item3.itemEdgeInsets = UIEdgeInsets(top: -26, left: 0, bottom: 0, right: 0)
-        
         vc1.tabBarItem = LKTabBarItem.init(title: "首页", image: UIImage(named: "home-normal")!, selectedImage: UIImage(named: "home-selected")!, tag: 0)
         vc2.tabBarItem = LKTabBarItem.init(title: "书架", image: UIImage(named: "shelf-normal")!, selectedImage: UIImage(named: "shelf-selected")!, tag: 1)
-        vc3.tabBarItem = item3
+        let tabBarItem3 = LKTabBarItem.init(title: "", image: UIImage(named: "add-plus")!, selectedImage: UIImage(named: "add-plus")!, tag: 2)
+        tabBarItem3.imageSize = CGSize(width: 72, height: 72)
+        tabBarItem3.itemEdgeInsets = UIEdgeInsets(top: -26, left: 0, bottom: 0, right: 0)
+        vc3.tabBarItem = tabBarItem3
         vc4.tabBarItem = LKTabBarItem.init(title: "功能", image: UIImage(named: "more-normal")!, selectedImage: UIImage(named: "more-selected")!, tag: 3)
         vc5.tabBarItem = LKTabBarItem.init(title: "设置", image: UIImage(named: "setting-normal")!, selectedImage: UIImage(named: "setting-selected")!, tag: 4)
         
         let config =  LKTabBarConfig()
+        
+        let tabBarController = LKTabBarController(config: config)
+        tabBarController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
+        
+        return tabBarController
+    }
+    
+    // 显示 tabBar 顶部线条
+    internal func customShowTabBarTopLineType() -> LKTabBarController {
+        let vc1 = DemoViewController()
+        let vc2 = DemoViewController()
+        let vc3 = DemoViewController()
+        let vc4 = DemoViewController()
+        let vc5 = DemoViewController()
+
+        vc1.tabBarItem = LKTabBarItem.init(title: "首页", image: UIImage(named: "home-normal")!, selectedImage: UIImage(named: "home-selected")!, tag: 0)
+        vc2.tabBarItem = LKTabBarItem.init(title: "书架", image: UIImage(named: "shelf-normal")!, selectedImage: UIImage(named: "shelf-selected")!, tag: 1)
+        vc3.tabBarItem = LKTabBarItem.init(title: "日历", image: UIImage(named: "calendar-normal")!, selectedImage: UIImage(named: "calendar-selected")!, tag: 2)
+        vc4.tabBarItem = LKTabBarItem.init(title: "功能", image: UIImage(named: "more-normal")!, selectedImage: UIImage(named: "more-selected")!, tag: 3)
+        vc5.tabBarItem = LKTabBarItem.init(title: "设置", image: UIImage(named: "setting-normal")!, selectedImage: UIImage(named: "setting-selected")!, tag: 4)
+        
+        let config =  LKTabBarConfig()
+        config.showTabBarTopLine = true
         
         let tabBarController = LKTabBarController(config: config)
         tabBarController.viewControllers = [vc1, vc2, vc3, vc4, vc5]

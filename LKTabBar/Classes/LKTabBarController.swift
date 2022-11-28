@@ -17,14 +17,15 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
         self.setupTabBar()
     }
     
-    open var lk_tabBar: LKTabBar? = nil
+    open var lk_tabBar: LKTabBar = {
+        let tabBar = LKTabBar()
+        return tabBar
+    }()
         
-    open var config: LKTabBarConfig = LKTabBarConfig()
-    
     public init(config: LKTabBarConfig) {
         super.init(nibName: nil, bundle: nil)
-        self.config = config
-        self.lk_tabBar?.config = config
+        
+        self.lk_tabBar.config = config
     }
     
     public required init?(coder: NSCoder) {
@@ -33,8 +34,8 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
     
     // 将系统 tabBar 替换为自定义 lk_tabBar
     open func setupTabBar() {
-        self.lk_tabBar = LKTabBar(frame: self.tabBar.frame)
-        self.lk_tabBar!.customDelegate = self
+        self.lk_tabBar.frame = self.tabBar.frame
+        self.lk_tabBar.customDelegate = self
         
         self.setValue(self.lk_tabBar, forKey: "tabBar")
         
@@ -54,7 +55,7 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
             return
         }
 
-        self.lk_tabBar!.selectedIndex = selectedIndex
+        self.lk_tabBar.selectedIndex = selectedIndex
     }
     
     func tabBar(_ tabBar: UITabBar, didSelectIndex selectedIndex: NSInteger) {

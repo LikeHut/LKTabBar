@@ -12,16 +12,10 @@ open class LKTabBarItem: UITabBarItem {
     
     public init(title: String? = nil, image: UIImage?, selectedImage: UIImage?, tag: Int = 0) {
         super.init()
-        if title != nil {
-            self.button.title = title
-        }
-        if image != nil {
-            self.button.normalImage = image
-        }
-        if selectedImage != nil {
-            self.button.selectedImage = selectedImage
-        }
         
+        self.button.title = title
+        self.button.normalImage = image
+        self.button.selectedImage = selectedImage
         self.button.tag = tag
     }
     

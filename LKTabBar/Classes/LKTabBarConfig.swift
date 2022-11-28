@@ -32,7 +32,7 @@ public class LKTabBarConfig: NSObject {
     // tabBar 背景颜色（默认白色）
     open var tabBarBackgroundColor: UIColor = .white
     // tabBar 顶部线条颜色（默认亮灰色）
-    open var tabBarTopLineColor: UIColor = UIColor(white: 0.89, alpha: 1)
+    open var tabBarTopLineColor: UIColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1)
     // tabBar 显示顶部线条（默认不显示）
     open var showTabBarTopLine: Bool = false
     

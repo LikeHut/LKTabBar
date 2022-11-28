@@ -29,6 +29,12 @@ open class LKTabBar: UITabBar {
         }
     }
     
+    open override var items: [UITabBarItem]? {
+        didSet {
+            self.reload()
+        }
+    }
+    
     open override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
         super.setItems(items, animated: animated)
         self.reload()
@@ -53,24 +59,6 @@ open class LKTabBar: UITabBar {
     internal func updateDisplay() {
         self.backgroundColor = config.tabBarBackgroundColor
         
-        let normalAttr: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 10.0),
-            .foregroundColor: config.normalTitleColor
-        ]
-
-        let selectAttr: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 10.0),
-            .foregroundColor: config.selectedTitleColor
-        ]
-        
-        UITabBarItem.appearance().setTitleTextAttributes(normalAttr, for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes(selectAttr, for: .selected)
-        
-        if #available(iOS 13.0, *) {
-            self.unselectedItemTintColor = config.normalTitleColor
-            self.tintColor = config.selectedTitleColor
-        }
-        
         guard let tabBarItems = self.items else {
             print("tabBarItems is empty error.")
             return
@@ -78,19 +66,20 @@ open class LKTabBar: UITabBar {
         
         for (idx, item) in tabBarItems.enumerated() {
             if let item = item as? LKTabBarItem {
-                item.button.tag = idx
+                item.button.tag = 1000 + idx
                 if item.normalTitleColor == nil {
-                    item.normalTitleColor = config.normalTitleColor
+                    item.button.normalTitleColor = config.normalTitleColor
                 }
                 if item.selectedTitleColor == nil {
-                    item.selectedTitleColor = config.selectedTitleColor
+                    item.button.selectedTitleColor = config.selectedTitleColor
                 }
                 if item.normalBackgroundColor == nil {
-                    item.normalBackgroundColor = config.normalBackgroundColor
+                    item.button.normalBackgroundColor = config.normalBackgroundColor
                 }
                 if item.selectedBackgroundColor == nil {
-                    item.selectedBackgroundColor = config.selectedBackgroundColor
+                    item.button.selectedBackgroundColor = config.selectedBackgroundColor
                 }
+                
                 item.button.customDelegate = self
                 
                 self.addSubview(item.button)
@@ -114,13 +103,17 @@ open class LKTabBar: UITabBar {
             return
         }
         
-        guard let view = tapGesture.view else {
+        guard let view = tapGesture.view as? LKTabBarItemButton else {
             return
         }
         
-        self.setupSelectedIndex(selectedIndex:view.tag)
+        guard let selectedIndex = self.buttons.firstIndex(of: view) else {
+            return
+        }
         
-        customDelegate?.tabBar(self, didSelectIndex: view.tag)
+        self.setupSelectedIndex(selectedIndex: selectedIndex)
+        
+        customDelegate?.tabBar(self, didSelectIndex: selectedIndex)
     }
     
     
@@ -213,8 +206,13 @@ open class LKTabBar: UITabBar {
                 button.frame = buttonFrame
             }
         }
+        
+        if let _ = self.topLineView.superview {
+            self.topLineView.frame = CGRectMake(0, 0, self.bounds.size.width, 1)
+        }
     }
     
+    // 扩大点击范围
     public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         var flag = super.point(inside: point, with: event)
         if !flag {

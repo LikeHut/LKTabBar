@@ -15,7 +15,7 @@ internal protocol LKTabBarItemButtonDelegate: NSObjectProtocol {
 }
 
 public class LKTabBarItemButton: UIView {
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -29,7 +29,7 @@ public class LKTabBarItemButton: UIView {
     }
     
     weak var customDelegate: LKTabBarItemButtonDelegate?
-
+    
     open var selected:Bool = false {
         didSet {
             self.imageView.image = selected ? self.selectedImage : self.normalImage
@@ -53,13 +53,37 @@ public class LKTabBarItemButton: UIView {
     
     open var imageSizeValue: NSValue?
     
-    open var normalTitleColor: UIColor?
+    open var normalTitleColor: UIColor? {
+        didSet {
+            if !selected {
+                self.titleLabel.textColor = normalTitleColor
+            }
+        }
+    }
     
-    open var selectedTitleColor: UIColor?
+    open var selectedTitleColor: UIColor? {
+        didSet {
+            if selected {
+                self.titleLabel.textColor = selectedTitleColor
+            }
+        }
+    }
     
-    open var normalBackgroundColor: UIColor?
+    open var normalBackgroundColor: UIColor? {
+        didSet {
+            if !selected {
+                self.backgroundColor = normalBackgroundColor
+            }
+        }
+    }
     
-    open var selectedBackgroundColor: UIColor?
+    open var selectedBackgroundColor: UIColor? {
+        didSet {
+            if selected {
+                self.backgroundColor = selectedBackgroundColor
+            }
+        }
+    }
     
     public var itemEdgeInsets: UIEdgeInsets = .zero
     
@@ -120,7 +144,7 @@ public class LKTabBarItemButton: UIView {
         super.layoutSubviews()
         
         imageView.isHidden = (imageView.image == nil)
-        titleLabel.isHidden = (titleLabel.text == nil)
+        titleLabel.isHidden = (titleLabel.text == nil || titleLabel.text == "")
         
         let size = self.bounds.size
         
