@@ -42,20 +42,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01612588910B5EC513AB65D0F5A418E9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		01612588910B5EC513AB65D0F5A418E9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0867449E565415D492FF197988530D4D /* LKTabBar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LKTabBar-Info.plist"; sourceTree = "<group>"; };
 		08FD47C5010F8F01BF8DF352911516D9 /* LKTabBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LKTabBar-prefix.pch"; sourceTree = "<group>"; };
 		0C2E8ADB5D844631F266C69F70BC8917 /* Pods-LKTabBar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LKTabBar_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		16E55740AD23ED8B8FB247B8D8D8700E /* LKTabBarItemButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LKTabBarItemButton.swift; path = LKTabBar/Classes/LKTabBarItemButton.swift; sourceTree = "<group>"; };
 		238737D0A5E8C7A894AAEF690837649B /* Pods-LKTabBar_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LKTabBar_Tests.modulemap"; sourceTree = "<group>"; };
 		2871AB38D87ACE000E38DFE2057C0791 /* Pods-LKTabBar_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LKTabBar_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		2CAEE545176DDEFCC8956C2CD141BCAD /* LKTabBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = LKTabBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		2CAEE545176DDEFCC8956C2CD141BCAD /* LKTabBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = LKTabBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2FAE5F4A4A2600E44085A338808F1193 /* Pods-LKTabBar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LKTabBar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3C819E68B76974999230DE39205C9CED /* Pods-LKTabBar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LKTabBar_Example.release.xcconfig"; sourceTree = "<group>"; };
 		458C299E5DA743144B10EA12E5E08020 /* LKTabBarConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LKTabBarConfig.swift; path = LKTabBar/Classes/LKTabBarConfig.swift; sourceTree = "<group>"; };
 		476B0A3E80DB3AFDD22F4675FD39FFC3 /* Pods-LKTabBar_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LKTabBar_Example-frameworks.sh"; sourceTree = "<group>"; };
 		4A34B8605B5BE059A623CD93D38F4361 /* Pods-LKTabBar_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LKTabBar_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		4DA9122C3C80071EBC48738CB4B4432A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		4DA9122C3C80071EBC48738CB4B4432A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4DDA6FF4485B045350BB59D351C4022B /* Pods-LKTabBar_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LKTabBar_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4E140C9DE00F76A7BB47647B0932EAAB /* LKTabBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LKTabBar.swift; path = LKTabBar/Classes/LKTabBar.swift; sourceTree = "<group>"; };
 		54332AB8E2F402A47F8A76C6720D7162 /* Pods-LKTabBar_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LKTabBar_Example-dummy.m"; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		93016730B32EADF440BB4A995F7D25DB /* Pods-LKTabBar_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LKTabBar_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		94FE373A00251093B07E6B3C09A956C5 /* LKTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LKTabBarController.swift; path = LKTabBar/Classes/LKTabBarController.swift; sourceTree = "<group>"; };
 		9AA1DEAE2F4613492CAEC7264A9DCEFB /* Pods-LKTabBar_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LKTabBar_Tests-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F26F216EA220BF3566A39B13F973FB7 /* Pods-LKTabBar_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LKTabBar_Example-Info.plist"; sourceTree = "<group>"; };
 		AD2F27DAF7B93579ED7FE5B6367A2B34 /* LKTabBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LKTabBar-dummy.m"; sourceTree = "<group>"; };
 		AE9180E86E51897AE45C3D7A5F54B125 /* Pods-LKTabBar_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LKTabBar_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -144,12 +144,12 @@
 		3B34CC3E938266A5761C9C7AF37446ED /* LKTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				4E140C9DE00F76A7BB47647B0932EAAB /* LKTabBar.swift */,
 				458C299E5DA743144B10EA12E5E08020 /* LKTabBarConfig.swift */,
 				94FE373A00251093B07E6B3C09A956C5 /* LKTabBarController.swift */,
+				4E140C9DE00F76A7BB47647B0932EAAB /* LKTabBar.swift */,
 				DFB85D6A6CF87ED82D6AD98393BA5D19 /* LKTabBarItem.swift */,
-				BE79AE3D5D0C702121F00D07FF12B3E1 /* LKTabBarItemBadge.swift */,
 				16E55740AD23ED8B8FB247B8D8D8700E /* LKTabBarItemButton.swift */,
+				BE79AE3D5D0C702121F00D07FF12B3E1 /* LKTabBarItemBadge.swift */,
 				7684AD3DCAB81D2014E29D797345CA1C /* Pod */,
 				115FA2E5A316BBCF7655B3C8142B146C /* Support Files */,
 			);
@@ -549,8 +549,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

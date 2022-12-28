@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - LKTabBarDelegate
 // 对 UITabBarDelegate 进行扩展，以支持 UITabBarControllerDelegate 的相关方法桥接
 internal protocol LKTabBarDelegate: NSObjectProtocol {
 
@@ -23,9 +24,15 @@ open class LKTabBar: UITabBar {
     
     lazy internal var topLineView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 1))
     
-    public var config: LKTabBarConfig = LKTabBarConfig() {
+    open var config: LKTabBarConfig = LKTabBarConfig() {
         didSet {
             self.reload()
+        }
+    }
+    
+    open var selectedIndex: NSInteger = 0 {
+        didSet {
+            self.setupSelectedIndex(selectedIndex: selectedIndex)
         }
     }
     
@@ -38,6 +45,20 @@ open class LKTabBar: UITabBar {
     open override func setItems(_ items: [UITabBarItem]?, animated: Bool) {
         super.setItems(items, animated: animated)
         self.reload()
+    }
+    
+    open override func beginCustomizingItems(_ items: [UITabBarItem]) {
+        #if DEBUG
+            print("beginCustomizingItems(_:) is unsupported in ESTabBar.")
+        #endif
+        super.beginCustomizingItems(items)
+    }
+    
+    open override func endCustomizing(animated: Bool) -> Bool {
+        #if DEBUG
+            print("endCustomizing(_:) is unsupported in ESTabBar.")
+        #endif
+        return super.endCustomizing(animated: animated)
     }
     
     internal func removeAll() {
@@ -54,13 +75,26 @@ open class LKTabBar: UITabBar {
         self.removeAll()
         
         self.updateDisplay()
+        
+        self.updateLayout()
     }
     
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.updateLayout()
+    }
+}
+
+// MARK: - Display 和 Layout
+extension LKTabBar {
     internal func updateDisplay() {
         self.backgroundColor = config.tabBarBackgroundColor
         
         guard let tabBarItems = self.items else {
-            print("tabBarItems is empty error.")
+            #if DEBUG
+                print("tabBarItems is empty error.")
+            #endif
             return
         }
         
@@ -80,7 +114,7 @@ open class LKTabBar: UITabBar {
                     item.button.selectedBackgroundColor = config.selectedBackgroundColor
                 }
                 
-                item.button.customDelegate = self
+                item.button.badgeShowAnimationDelegate = self
                 
                 self.addSubview(item.button)
                 self.buttons.append(item.button)
@@ -94,10 +128,44 @@ open class LKTabBar: UITabBar {
             self.addSubview(self.topLineView)
             topLineView.backgroundColor = config.tabBarTopLineColor
         }
-        
-        self.setNeedsLayout()
     }
-                                                      
+    
+    internal func updateLayout() {
+        guard self.items != nil else {
+            #if DEBUG
+                print("tabBarItems is empty error.")
+            #endif
+            return
+        }
+        
+        let tabBarButtons = subviews.filter { subview -> Bool in
+            if let cls = NSClassFromString("UITabBarButton") {
+                return subview.isKind(of: cls)
+            }
+            return false
+            } .sorted { (subview1, subview2) -> Bool in
+                return subview1.frame.origin.x < subview2.frame.origin.x
+        }
+        
+        for (idx, button) in buttons.enumerated(){
+            if !tabBarButtons[idx].frame.isEmpty {
+                var buttonFrame = tabBarButtons[idx].frame
+                buttonFrame.origin.y += button.itemEdgeInsets.top
+                buttonFrame.origin.x += button.itemEdgeInsets.left
+                buttonFrame.size.height += button.itemEdgeInsets.bottom
+                buttonFrame.size.width += button.itemEdgeInsets.right
+                button.frame = buttonFrame
+            }
+        }
+        
+        if let _ = self.topLineView.superview {
+            self.topLineView.frame = CGRectMake(0, 0, self.bounds.size.width, 1)
+        }
+    }
+}
+
+// MARK: - LKTabBarItem 点击选中相关
+extension LKTabBar {
     @objc func selectAction(_ sender: AnyObject?) {
         guard let tapGesture = sender as? UITapGestureRecognizer else {
             return
@@ -116,13 +184,6 @@ open class LKTabBar: UITabBar {
         customDelegate?.tabBar(self, didSelectIndex: selectedIndex)
     }
     
-    
-    open var selectedIndex:NSInteger = 0 {
-        didSet {
-            self.setupSelectedIndex(selectedIndex: selectedIndex)
-        }
-    }
-    
     func setupSelectedIndex(selectedIndex: NSInteger) {
         for (idx, button) in buttons.enumerated() {
             if idx == selectedIndex {
@@ -136,7 +197,7 @@ open class LKTabBar: UITabBar {
         }
     }
     
-    // MARK: - 点击选中动画相关
+    // LKTabBarItem 点击选中动画
     private func selectedAnimateWithView(view: UIView, type: LKTabBarItemSelectedAnimationType) {
         switch type {
         case .none:
@@ -178,41 +239,8 @@ open class LKTabBar: UITabBar {
             view.layer.add(scaleAnima, forKey: nil)
         }
     }
-
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        guard self.items != nil else {
-            print("tabBarItems is empty error.")
-            return
-        }
-        
-        let tabBarButtons = subviews.filter { subview -> Bool in
-            if let cls = NSClassFromString("UITabBarButton") {
-                return subview.isKind(of: cls)
-            }
-            return false
-            } .sorted { (subview1, subview2) -> Bool in
-                return subview1.frame.origin.x < subview2.frame.origin.x
-        }
-        
-        for (idx, button) in buttons.enumerated(){
-            if !tabBarButtons[idx].frame.isEmpty {
-                var buttonFrame = tabBarButtons[idx].frame
-                buttonFrame.origin.y += button.itemEdgeInsets.top
-                buttonFrame.origin.x += button.itemEdgeInsets.left
-                buttonFrame.size.height += button.itemEdgeInsets.bottom
-                buttonFrame.size.width += button.itemEdgeInsets.right
-                button.frame = buttonFrame
-            }
-        }
-        
-        if let _ = self.topLineView.superview {
-            self.topLineView.frame = CGRectMake(0, 0, self.bounds.size.width, 1)
-        }
-    }
     
-    // 扩大点击范围
+    // 扩大 LKTabBarItem 点击范围
     public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         var flag = super.point(inside: point, with: event)
         if !flag {
@@ -226,8 +254,8 @@ open class LKTabBar: UITabBar {
     }
 }
 
-// LKTabBarItemButtonDelegate 实现
-extension LKTabBar: LKTabBarItemButtonDelegate {
+// MARK: - badge 值改变时的动画效果代理实现
+extension LKTabBar: LKTabBarItemBadgeShowAnimationDelegate {
     func buttonBadgeChanged(_ button: LKTabBarItemButton) {
         badgeShowAnimationWithView(view: button.badgeView, type: config.badgeAnimationType)
     }
@@ -235,7 +263,8 @@ extension LKTabBar: LKTabBarItemButtonDelegate {
     private func angle2Rad(_ angle: CGFloat) -> CGFloat {
         return angle / 180.0 * Double.pi
     }
-    // MARK: - badgeValue 的动画显示效果
+    
+    // badgeValue 的动画显示效果
     private func badgeShowAnimationWithView(view: UIView, type: LKTabBarItemBadgeShowAnimationType) {
         switch type {
         case .none:

@@ -9,26 +9,14 @@
 import UIKit
 
 /// 主要实现 badge 值改变时的动画效果
-internal protocol LKTabBarItemButtonDelegate: NSObjectProtocol {
+internal protocol LKTabBarItemBadgeShowAnimationDelegate: NSObjectProtocol {
 
     func buttonBadgeChanged(_ button: LKTabBarItemButton)
 }
 
-public class LKTabBarItemButton: UIView {
+open class LKTabBarItemButton: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        self.addSubview(imageView)
-        self.addSubview(titleLabel)
-        self.addSubview(badgeView)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    weak var customDelegate: LKTabBarItemButtonDelegate?
+    weak var badgeShowAnimationDelegate: LKTabBarItemBadgeShowAnimationDelegate?
     
     open var selected:Bool = false {
         didSet {
@@ -113,7 +101,7 @@ public class LKTabBarItemButton: UIView {
                 // remove when nil.
                 self.badgeView.removeFromSuperview()
             }
-            customDelegate?.buttonBadgeChanged(self)
+            badgeShowAnimationDelegate?.buttonBadgeChanged(self)
         }
     }
     
@@ -140,9 +128,25 @@ public class LKTabBarItemButton: UIView {
         }
     }
     
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.addSubview(imageView)
+        self.addSubview(titleLabel)
+        self.addSubview(badgeView)
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     open override func layoutSubviews() {
         super.layoutSubviews()
         
+        self.updateLayout()
+    }
+    
+    open func updateLayout() {
         imageView.isHidden = (imageView.image == nil)
         titleLabel.isHidden = (titleLabel.text == nil || titleLabel.text == "")
         

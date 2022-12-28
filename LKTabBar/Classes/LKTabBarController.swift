@@ -8,36 +8,31 @@
 
 import UIKit
 
-open class LKTabBarController: UITabBarController, LKTabBarDelegate {
-
+open class LKTabBarController: UITabBarController {
+    
+    open var config: LKTabBarConfig = LKTabBarConfig() {
+        didSet {
+            guard let tabBar = self.tabBar as? LKTabBar else {
+                return
+            }
+            tabBar.config = config
+        }
+    }
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupTabBar()
     }
-    
-    open var lk_tabBar: LKTabBar = {
-        let tabBar = LKTabBar()
-        return tabBar
-    }()
-        
-    public init(config: LKTabBarConfig) {
-        super.init(nibName: nil, bundle: nil)
-        
-        self.lk_tabBar.config = config
-    }
-    
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // 将系统 tabBar 替换为自定义 lk_tabBar
+
+    // 将系统 tabBar 替换为自定义 LKTabBar 类型
     open func setupTabBar() {
-        self.lk_tabBar.frame = self.tabBar.frame
-        self.lk_tabBar.customDelegate = self
+        let tabBar: LKTabBar = LKTabBar()
+        tabBar.delegate = self
+        tabBar.customDelegate = self
         
-        self.setValue(self.lk_tabBar, forKey: "tabBar")
+        self.setValue(tabBar, forKey: "tabBar")
         
         self.addObserver(self, forKeyPath: "selectedIndex", options: [.old, .new], context: nil)
     }
@@ -54,12 +49,25 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
         guard let selectedIndex = change?[NSKeyValueChangeKey.newKey] as? NSInteger else {
             return
         }
+        guard let tabBar = self.tabBar as? LKTabBar else {
+            return
+        }
+        tabBar.selectedIndex = selectedIndex
+    }
+}
 
-        self.lk_tabBar.selectedIndex = selectedIndex
+// MARK: - UITabBarDelegate 实现
+extension LKTabBarController {
+    public override func tabBar(_ tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem]) {
+        if let tabBar = tabBar as? LKTabBar {
+            tabBar.updateLayout()
+        }
     }
     
-    func tabBar(_ tabBar: UITabBar, didSelectIndex selectedIndex: NSInteger) {
-        self.selectedIndex = selectedIndex
+    public override func tabBar(_ tabBar: UITabBar, didEndCustomizing items: [UITabBarItem], changed: Bool) {
+        if let tabBar = tabBar as? LKTabBar {
+            tabBar.updateLayout()
+        }
     }
     
     public override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -71,5 +79,12 @@ open class LKTabBarController: UITabBarController, LKTabBarDelegate {
             delegate?.tabBarController?(self, didSelect: vc)
             selectedIndex = index
         }
+    }
+}
+
+// MARK: - LKTabBarDelegate 代理实现
+extension LKTabBarController: LKTabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelectIndex selectedIndex: NSInteger) {
+        self.selectedIndex = selectedIndex
     }
 }

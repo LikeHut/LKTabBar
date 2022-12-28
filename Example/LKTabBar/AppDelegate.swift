@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-
 //        self.window = UIWindow(frame:UIScreen.main.bounds)
 //        let vc1 = DemoViewController()
 //        let vc2 = DemoViewController()
@@ -32,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        vc4.tabBarItem = LKTabBarItem.init(title: "功能", image: UIImage(named: "more-normal")!, selectedImage: UIImage(named: "more-selected")!, tag: 3)
 //        vc5.tabBarItem = LKTabBarItem.init(title: "设置", image: UIImage(named: "setting-normal")!, selectedImage: UIImage(named: "setting-selected")!, tag: 4)
 //        
-//        let config =  LKTabBarConfig()
-//        let tabBarController = LKTabBarController(config: config)
+//        let tabBarController = LKTabBarController()
+//        tabBarController.config = LKTabBarConfig()
 //        tabBarController.viewControllers = [vc1, vc2, vc3, vc4, vc5]
 //        
 //        self.window?.rootViewController = tabBarController

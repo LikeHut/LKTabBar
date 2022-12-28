@@ -10,15 +10,6 @@ import UIKit
 
 open class LKTabBarItem: UITabBarItem {
     
-    public init(title: String? = nil, image: UIImage?, selectedImage: UIImage?, tag: Int = 0) {
-        super.init()
-        
-        self.button.title = title
-        self.button.normalImage = image
-        self.button.selectedImage = selectedImage
-        self.button.tag = tag
-    }
-    
     public var button: LKTabBarItemButton = LKTabBarItemButton()
     
     public override var badgeValue: String? {
@@ -93,7 +84,16 @@ open class LKTabBarItem: UITabBarItem {
         }
     }
     
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    public init(title: String? = nil, image: UIImage?, selectedImage: UIImage?, tag: Int = 0) {
+        super.init()
+        
+        self.button.title = title
+        self.button.normalImage = image
+        self.button.selectedImage = selectedImage
+        self.button.tag = tag
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 }

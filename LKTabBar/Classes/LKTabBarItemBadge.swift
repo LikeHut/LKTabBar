@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class LKTabBarItemBadge: UIView {
+open class LKTabBarItemBadge: UIView {
 
     open var badgeColor: UIColor? = UIColor(red: 255.0/255.0, green: 59.0/255.0, blue: 48.0/255.0, alpha: 1.0) {
         didSet {
@@ -45,8 +45,8 @@ public class LKTabBarItemBadge: UIView {
         self.imageView.backgroundColor = badgeColor
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     open override func layoutSubviews() {

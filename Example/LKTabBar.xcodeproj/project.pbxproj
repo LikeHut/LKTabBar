@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		93AF0E13292E53A6007CC9B2 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AF0E12292E53A6007CC9B2 /* DemoViewController.swift */; };
+		95D61697295C0FC600966CE5 /* DemoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D61696295C0FC600966CE5 /* DemoProvider.swift */; };
 		9B957F88D8EDA210DCCFAF39 /* Pods_LKTabBar_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651B8B280356AFBCF7692BFC /* Pods_LKTabBar_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		651B8B280356AFBCF7692BFC /* Pods_LKTabBar_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LKTabBar_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7157F004AA37B73CAC990ED3 /* Pods-LKTabBar_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKTabBar_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LKTabBar_Tests/Pods-LKTabBar_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		93AF0E12292E53A6007CC9B2 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		95D61696295C0FC600966CE5 /* DemoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoProvider.swift; sourceTree = "<group>"; };
 		BAC4DE32C4BDCBE75EA80536 /* Pods_LKTabBar_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LKTabBar_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4A5E8F184DDA820DF5CA88 /* Pods-LKTabBar_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKTabBar_Tests.release.xcconfig"; path = "Target Support Files/Pods-LKTabBar_Tests/Pods-LKTabBar_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DB3405BBF2EAEB7601272547 /* Pods-LKTabBar_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKTabBar_Example.release.xcconfig"; path = "Target Support Files/Pods-LKTabBar_Example/Pods-LKTabBar_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				95D61696295C0FC600966CE5 /* DemoProvider.swift */,
 				93AF0E12292E53A6007CC9B2 /* DemoViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -334,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93AF0E13292E53A6007CC9B2 /* DemoViewController.swift in Sources */,
+				95D61697295C0FC600966CE5 /* DemoProvider.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

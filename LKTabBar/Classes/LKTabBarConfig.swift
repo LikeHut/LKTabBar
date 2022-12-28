@@ -26,7 +26,7 @@ public enum LKTabBarItemBadgeShowAnimationType: Int, @unchecked Sendable {
     case scale = 3       // 缩放效果
 }
 
-public class LKTabBarConfig: NSObject {
+open class LKTabBarConfig: NSObject {
     // MARK: - tabBar 相关设置
     
     // tabBar 背景颜色（默认白色）
